@@ -18,7 +18,8 @@
     "__BASENAME__" : false
   },
   "rules": {
-    "semi" : [2, "never"],
+    "semi" : [2, "always"],
+    "indent": [2, 4, { "SwitchCase": 0 }],
     "space-infix-ops": 0,
     "max-len": [2, 120, 2],
     "flow-vars/define-flow-type": 1,
