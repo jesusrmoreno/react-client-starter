@@ -41,11 +41,16 @@ Features
   * Includes react-addons-test-utils (`^0.14.0`)
 * [Redux](https://github.com/rackt/redux) (`^3.0.0`)
   * react-redux (`^4.0.0`)
+  * [redux-promise-middleware](https://github.com/pburtchaell/redux-promise-middleware) (`^2.3.3`)
   * redux-devtools
     * use `npm run dev:nw` to display them in a separate window.
   * redux-thunk middleware
 * [react-router](https://github.com/rackt/react-router) (`^2.0.0`)
-* [react-router-redux](https://github.com/rackt/react-router-redux) (`^3.0.0`)
+* [react-router-redux](https://github.com/rackt/react-router-redux) (`^4.0.0-alpha.1`)
+* [react-document-title](https://github.com/gaearon/react-document-title) (`^2.0.1`)
+* [material-ui](https://github.com/callemall/material-ui) (`^0.14.4`)
+* [momentjs](https://github.com/moment/moment) (`^2.11.2`)
+* [lodash](https://github.com/lodash/lodash) (`^4.3.0`)
 * [Webpack](https://github.com/webpack/webpack)
   * [CSS modules!](https://github.com/css-modules/css-modules)
   * sass-loader
