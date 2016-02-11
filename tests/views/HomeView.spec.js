@@ -36,10 +36,6 @@ describe('(View) Home', function () {
         _rendered = renderWithProps(_props);
     });
 
-    it('Should render as a <div>.', function () {
-        expect(_component.type).to.equal('div');
-    });
-
     it('Should include an <h1> with welcome text.', function () {
         const h1 = TestUtils.findRenderedDOMComponentWithTag(_rendered, 'h1');
 

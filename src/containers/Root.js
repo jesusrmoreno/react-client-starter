@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router } from 'react-router';
+import DocumentTitle from 'react-document-title';
 
 export default class Root extends React.Component {
   static propTypes = {
@@ -35,10 +36,12 @@ export default class Root extends React.Component {
   render () {
       return (
       <Provider store={this.props.store}>
-        <div style={{ height: '100%' }}>
-          {this.content}
-          {this.devTools}
-        </div>
+          <DocumentTitle title={__APPTITLE__}>
+              <div style={{ height: '100%' }}>
+                  {this.content}
+                  {this.devTools}
+              </div>
+          </DocumentTitle>
       </Provider>
     );
   }
