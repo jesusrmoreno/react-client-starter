@@ -1,29 +1,30 @@
 {
-  "parser"  : "babel-eslint",
-  "extends" : [
-    "standard",
-    "standard-react"
-  ],
-  "plugins" : [
-    "flow-vars"
-  ],
-  "env"     : {
-    "browser" : true
-  },
-  "globals" : {
-    "__DEV__"      : false,
-    "__PROD__"     : false,
-    "__DEBUG__"    : false,
-    "__DEBUG_NEW_WINDOW__" : false,
-    "__BASENAME__" : false,
-    "__APPTITLE__": false
-  },
-  "rules": {
-    "semi" : [2, "always"],
-    "indent": [2, 4, { "SwitchCase": 0 }],
-    "space-infix-ops": 0,
-    "max-len": [2, 120, 2],
-    "flow-vars/define-flow-type": 1,
-    "flow-vars/use-flow-type": 1
-  }
+    "parser": "babel-eslint",
+    "extends": [
+        "standard",
+        "standard-react"
+    ],
+    "plugins": [
+        "flow-vars"
+    ],
+    "env": {
+        "browser": true
+    },
+    "globals": {
+        "__DEV__": false,
+        "__PROD__": false,
+        "__DEBUG__": false,
+        "__DEBUG_NEW_WINDOW__": false,
+        "__BASENAME__": false,
+        "__APPTITLE__": false
+    },
+    "rules": {
+        "semi": [ 2, "always" ],
+        "indent": [2, 4, { "SwitchCase": 0 } ],
+        "space-infix-ops": 0,
+        "comma-dangle": 0,
+        "max-len": [ 2, 120, 2 ],
+        "flow-vars/define-flow-type": 1,
+        "flow-vars/use-flow-type": 1
+    }
 }
