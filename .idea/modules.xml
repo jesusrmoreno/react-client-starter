@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/opendoor-trading.iml" filepath="$PROJECT_DIR$/.idea/opendoor-trading.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/react-client-starter.iml" filepath="$PROJECT_DIR$/.idea/react-client-starter.iml" />
     </modules>
   </component>
 </project>

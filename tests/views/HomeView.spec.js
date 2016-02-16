@@ -20,7 +20,7 @@ function shallowRenderWithProps (props = {}) {
 }
 
 describe('(View) Home', function () {
-    let _component, _rendered, _props, _spies;
+    let _rendered, _props, _spies;
 
     beforeEach(function () {
         _spies = {};
@@ -32,7 +32,7 @@ describe('(View) Home', function () {
             }, _spies.dispatch = sinon.spy())
         };
 
-        _component = shallowRenderWithProps(_props);
+        shallowRenderWithProps(_props);
         _rendered = renderWithProps(_props);
     });
 
