@@ -1,25 +1,23 @@
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
+import databind from 'redux/utils/databind';
 import { Link } from 'react-router';
 import { actions as counterActions } from '../../redux/modules/counter';
 import DuckImage from './Duck.jpg';
 import classes from './HomeView.scss';
 import DocumentTitle from 'react-document-title';
 
-// We define mapStateToProps where we'd normally use
-// the @connect decorator so the data requirements are clear upfront, but then
-// export the decorated component after the main class definition so
-// the component can be tested w/ and w/o being connected.
-// See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
-const mapStateToProps = (state) => ({
-    counter: state.counter
-});
+// testable class without redux connection
 export class HomeView extends React.Component {
     static propTypes = {
         counter: PropTypes.number.isRequired,
         doubleAsync: PropTypes.func.isRequired,
         increment: PropTypes.func.isRequired
     };
+
+    /* @databind finds this method and passes it to Redux connect() */
+    static databind ({counter}) { return {counter}; }
+    /* @databind finds this property and passes it to Redux connect() */
+    static actions = counterActions;
 
     render () {
         return (
@@ -55,4 +53,5 @@ export class HomeView extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, counterActions)(HomeView);
+// default export with redux connection
+export default databind(HomeView);
