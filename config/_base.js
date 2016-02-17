@@ -19,8 +19,9 @@ const config = {
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
-    server_host : 'localhost',
+    server_host : 'local.server.com',
     server_port : process.env.PORT || 3000,
+    server_ssl : true, // serve via HTTPS instead of HTTP
 
   // ----------------------------------
   // Compiler Configuration
