@@ -14,7 +14,8 @@ let hasOverridesFile;
 try {
     fs.lstatSync(`${__dirname}/${overridesFilename}.js`);
     hasOverridesFile = true;
-} catch (e) {}
+}
+catch (e) {}
 
 // Overrides file exists, so we can attempt to require it.
 // We intentionally don't wrap this in a try/catch as we want
@@ -22,7 +23,8 @@ try {
 let overrides;
 if (hasOverridesFile) {
     overrides = require(`./${overridesFilename}`).default(config);
-} else {
+}
+else {
     debug(`No configuration overrides found for NODE_ENV "${config.env}"`);
 }
 

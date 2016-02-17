@@ -16,13 +16,12 @@ if (!config.server_ssl) {
     debug(`Server is now running at http://${host}:${port}`);
 }
 else {
-
     // serve over HTTPS
     const certPath = path.join(__dirname, 'sslcert', 'server');
     const httpsOptions = {
-        key: fs.readFileSync(path.join(certPath, "server.key.pem")),
-        ca: [fs.readFileSync(path.join(certPath, "private-root-ca.crt.pem"))],
-        cert: fs.readFileSync(path.join(certPath, "server.crt.pem")),
+        key: fs.readFileSync(path.join(certPath, 'server.key.pem')),
+        ca: [fs.readFileSync(path.join(certPath, 'private-root-ca.crt.pem'))],
+        cert: fs.readFileSync(path.join(certPath, 'server.crt.pem')),
     };
     https.createServer(httpsOptions, server.callback()).listen(port);
     debug(`Server is now running at https://${host}:${port}`);

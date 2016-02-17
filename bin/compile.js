@@ -19,17 +19,20 @@ compiler.run((err, stats) => {
     if (err) {
         debug('Webpack compiler encountered a fatal error.', err);
         process.exit(1);
-    } else if (jsonStats.errors.length > 0) {
+    }
+    else if (jsonStats.errors.length > 0) {
         debug('Webpack compiler encountered errors.');
         console.log(jsonStats.errors);
         process.exit(1);
-    } else if (jsonStats.warnings.length > 0) {
+    }
+    else if (jsonStats.warnings.length > 0) {
         debug('Webpack compiler encountered warnings.');
 
         if (config.compiler_fail_on_warning) {
             process.exit(1);
         }
-    } else {
+    }
+    else {
         debug('No errors or warnings encountered.');
     }
 

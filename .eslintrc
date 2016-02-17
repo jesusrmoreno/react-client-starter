@@ -19,6 +19,7 @@
         "__APPTITLE__": false
     },
     "rules": {
+        "brace-style": [ 2, "stroustrup", { "allowSingleLine": true } ],
         "semi": [ 2, "always" ],
         "indent": [2, 4, { "SwitchCase": 0 } ],
         "space-infix-ops": 0,

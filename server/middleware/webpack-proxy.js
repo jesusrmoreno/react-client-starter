@@ -48,7 +48,8 @@ module.exports = function (options) {
         var res;
         if (parsedBody) {
             res = yield requestThunk;
-        } else {
+        }
+        else {
       // Is there a better way?
       // https://github.com/leukhin/co-request/issues/11
             res = yield pipeRequest(this.req, requestThunk);
@@ -81,7 +82,8 @@ function resolve (path, options) {
         if (options.map && options.map[path]) {
             path = ignoreQuery(options.map[path]);
         }
-    } else if (typeof options.map === 'function') {
+    }
+    else if (typeof options.map === 'function') {
         path = options.map(path);
     }
 
@@ -101,7 +103,8 @@ function getParsedBody (ctx) {
     if (!Buffer.isBuffer(body) && typeof body !== 'string') {
         if (contentType && contentType.indexOf('json') !== -1) {
             body = JSON.stringify(body);
-        } else {
+        }
+        else {
             body = body + '';
         }
     }
