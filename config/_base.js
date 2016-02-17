@@ -19,7 +19,7 @@ const config = {
   // ----------------------------------
   // Server Configuration
   // ----------------------------------
-    server_host : 'local.server.com',
+    server_host : 'localhost',
     server_port : process.env.PORT || 3000,
     server_ssl : false, // serve via HTTPS instead of HTTP
 
