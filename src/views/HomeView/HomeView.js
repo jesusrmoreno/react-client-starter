@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import { actions as counterActions } from '../../redux/modules/counter';
 import DuckImage from './Duck.jpg';
 import classes from './HomeView.scss';
-import DocumentTitle from 'react-document-title';
+import DocumentTitle from 'components/DocumentTitle';
 
 // testable class without redux connection
 export class HomeView extends React.Component {
@@ -21,7 +21,7 @@ export class HomeView extends React.Component {
 
     render () {
         return (
-            <DocumentTitle title={`${__APPTITLE__} - Home`}>
+            <DocumentTitle title="Home">
                 <div className="container text-center">
                     <div className="row">
                         <div className="col-xs-2 col-xs-offset-5">

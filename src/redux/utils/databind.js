@@ -1,8 +1,11 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import shallowEqual from 'react-redux/lib/utils/shallowEqual';
 import hoistStatics from 'hoist-non-react-statics';
-import { SerialDisposable } from 'rx.disposables';
+import SerialDisposable from 'rx.disposables/serialdisposable';
+import Disposable from 'rx.disposables/disposable';
+import invariant from 'invariant';
 
 function hasProperty (object, name) { return Object.prototype.hasOwnProperty.call(object, name); }
 
@@ -35,7 +38,13 @@ export default function databind (Component) {
                     this.keys = observers.map(observer => observer.props(props));
 
                     // Now get the initial observer disposables
-                    observers.forEach((observer, i) => d[i].setDisposable(observer.observe(props)));
+                    observers.forEach((observer, i) => {
+                        const o = observer.observe(props);
+                        if (__CHECK__) {
+                            invariant(Disposable.isDisposable(o), "your observe method must return a Disposable");
+                        }
+                        d[i].setDisposable(o);
+                    });
                 }
 
                 componentDidUpdate () {
@@ -48,7 +57,11 @@ export default function databind (Component) {
                         if (!shallowEqual(key, prevKey)) {
                             // key has changed.  re-observe
                             prevKeys[i] = key;
-                            disposables[i].setDisposable(observer.observe(props));
+                            const o = observer.observe(props);
+                            if (__CHECK__) {
+                                invariant(Disposable.isDisposable(o), "your observe method must return a Disposable");
+                            }
+                            disposables[i].setDisposable(o);
                         }
                     });
                 }
@@ -64,7 +77,17 @@ export default function databind (Component) {
 
             Observe.displayName = `Observe(${name})`;
 
-            return connect(selectState, Component.actions)(hoistStatics(Observe, Component));
+            let actions = Component.actions;
+            if (actions) {
+                // need to ensure dispatch gets injected also.
+                actions = (dispatch) => {
+                    const props = bindActionCreators(Component.actions, dispatch);
+                    props.dispatch = dispatch;
+                    return props;
+                };
+            }
+
+            return connect(selectState, actions)(hoistStatics(Observe, Component));
         }
     }
 
