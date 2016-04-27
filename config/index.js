@@ -1,6 +1,7 @@
 import fs from 'fs';
 import _debug from 'debug';
 import config from './_base';
+import csp from './csp';
 
 const debug = _debug('app:config');
 debug('Create configuration.');
@@ -28,4 +29,6 @@ else {
     debug(`No configuration overrides found for NODE_ENV "${config.env}"`);
 }
 
-export default Object.assign({}, config, overrides);
+const result = {...config, ...overrides};
+result.csp = csp(result);
+export default result;

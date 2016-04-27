@@ -48,6 +48,7 @@ Session.vim
 .idea/tasks.xml
 .idea/dictionaries
 .idea/shelf
+.idea/icon.png
 
 # Sensitive or high-churn files:
 .idea/dataSources.ids
@@ -111,7 +112,6 @@ fabric.properties
 x64/
 x86/
 bld/
-[Bb]in/
 [Oo]bj/
 
 # Visual Studio 2015 cache/options directory
@@ -230,7 +230,7 @@ publish/
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
-# TODO: Comment the next line if you want to checkin your web deploy settings 
+# TODO: Comment the next line if you want to checkin your web deploy settings
 # but database connection strings (with potential passwords) will be unencrypted
 *.pubxml
 *.publishproj
@@ -349,4 +349,3 @@ _Pvt_Extensions
 
 # sftp configuration file
 sftp-config.json
-

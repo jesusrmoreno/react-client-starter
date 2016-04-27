@@ -12,13 +12,17 @@
         "compile": "babel-node bin/compile",
         "lint": "eslint . ./",
         "lint:fix": "npm run lint -- --fix",
-        "start": "better-npm-run start",
+        "start": "npm run startint -- --no_debug",
+        "start:quiet": "npm run startint -- --no_debug --no_log",
+        "start:debug": "npm run startint",
+        "startint": "better-npm-run start",
         "dev": "better-npm-run dev",
         "dev:nw": "npm run dev -- --nw",
         "dev:no-debug": "npm run dev -- --no_debug",
         "test": "better-npm-run test",
         "test:dev": "npm run test -- --watch",
         "deploy": "better-npm-run deploy",
+        "deployprod": "better-npm-run deployprod",
         "flow:check": "babel-node bin/flow-check"
     },
     "betterScripts": {
@@ -33,13 +37,22 @@
             "command": "npm run clean && npm run compile",
             "env": {
                 "NODE_ENV": "production",
+                "CHECK": "true",
+                "DEBUG": "app:*"
+            }
+        },
+        "deployprod": {
+            "command": "npm run clean && npm run compile",
+            "env": {
+                "NODE_ENV": "production",
                 "DEBUG": "app:*"
             }
         },
         "start": {
             "command": "babel-node bin/server",
             "env": {
-                "DEBUG": "app:*"
+                "DEBUG": "app:*",
+                "NOLINT": "true"
             }
         },
         "test": {

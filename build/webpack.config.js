@@ -49,11 +49,12 @@ webpackConfig.plugins = [
     new HtmlWebpackPlugin({
         template: paths.client('index.html'),
         hash: false,
-        favicon: paths.client('static/favicon.ico'),
         filename: 'index.html',
-        inject: 'body',
+        inject: false,
+        csp: config.csp,
         minify: {
-            collapseWhitespace: true
+            collapseWhitespace: true,
+            removeComments: true
         }
     })
 ];
@@ -90,16 +91,20 @@ if (!__TEST__) {
 // ------------------------------------
 // Pre-Loaders
 // ------------------------------------
-webpackConfig.module.preLoaders = [{
-    test: /\.(js|jsx)$/,
-    loader: 'eslint',
-    exclude: /node_modules/
-}];
+if (process.env.NOLINT !== "true") {
+    webpackConfig.module.preLoaders = [
+        {
+            test: /\.(js|jsx)$/,
+            loader: 'eslint',
+            exclude: /node_modules/
+        }
+    ];
 
-webpackConfig.eslint = {
-    configFile: paths.base('.eslintrc'),
-    emitWarning: __DEV__
-};
+    webpackConfig.eslint = {
+        configFile: paths.base('.eslintrc'),
+        emitWarning: __DEV__
+    };
+}
 
 // ------------------------------------
 // Loaders
@@ -138,7 +143,6 @@ webpackConfig.module.loaders.push({
     loaders: [
         'style',
         cssLoader,
-        'postcss',
         'sass?sourceMap'
     ]
 });
@@ -148,8 +152,7 @@ webpackConfig.module.loaders.push({
     include: /src/,
     loaders: [
         'style',
-        cssLoader,
-        'postcss'
+        cssLoader
     ]
 });
 
@@ -160,7 +163,6 @@ webpackConfig.module.loaders.push({
     loaders: [
         'style',
         'css?sourceMap',
-        'postcss',
         'sass?sourceMap'
     ]
 });
