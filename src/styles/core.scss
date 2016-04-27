@@ -13,11 +13,27 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        width: 100%;
+        overflow: hidden;
     }
 
     *,
     *:before,
     *:after {
         box-sizing: inherit;
+    }
+
+    // Material-UI wants Roboto:
+    body {
+        font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .fill-parent {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 }

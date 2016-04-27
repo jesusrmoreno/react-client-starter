@@ -5,8 +5,15 @@ import makeRoutes from './routes';
 import Root from './containers/Root';
 import configureStore from './redux/configureStore';
 import { syncHistoryWithStore } from 'react-router-redux';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 function init() {
+    // Needed for Material-UI onTouchTap
+    // Can go away when react 1.0 release
+    // Check this repo:
+    // https://github.com/zilverline/react-tap-event-plugin
+    injectTapEventPlugin();
+
     // Create the Redux store
     const initialState = {};
     const store = configureStore(initialState);

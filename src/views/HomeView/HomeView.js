@@ -2,9 +2,11 @@ import React, {PropTypes} from 'react';
 import databind from 'redux/utils/databind';
 import {Link} from 'react-router';
 import {actions as counterActions} from '../../redux/modules/counter';
-import DuckImage from './Duck.jpg';
-import classes from './HomeView.scss';
+import Paper from 'material-ui/Paper';
+import RaisedButton from 'material-ui/RaisedButton';
+import css from './HomeView.scss';
 import DocumentTitle from 'components/DocumentTitle';
+import classnames from 'classnames';
 
 // testable class without redux connection
 export class HomeView extends React.Component {
@@ -25,33 +27,24 @@ export class HomeView extends React.Component {
     incrementByOne = () => this.props.increment(1);
 
     render () {
+        const isEven = (this.props.counter % 2) === 0;
+        const counterClass = classnames(css.counter, isEven ? css.even : css.odd);
         return (
             <DocumentTitle title="Home">
-                <div className="container text-center">
-                    <div className="row">
-                        <div className="col-xs-2 col-xs-offset-5">
-                            <img className={classes.duck} src={DuckImage}
-                                alt="This is a duck, because Redux." />
-                        </div>
-                    </div>
+                <Paper className={css.main}>
+                    <div className={css.duck} />
                     <h1>Welcome to the React Redux Starter Kit</h1>
                     <h2>
                         Sample Counter:
                         {' '}
-                        <span className={classes['counter--green']}>{this.props.counter}</span>
+                        <span className={counterClass}>{this.props.counter}</span>
                     </h2>
-                    <button className="btn btn-default"
-                        onClick={this.incrementByOne}>
-                        Increment
-                    </button>
+                    <RaisedButton label="Increment" onClick={this.incrementByOne} />
                     {' '}
-                    <button className="btn btn-default"
-                        onClick={this.props.doubleAsync}>
-                        Double (Async)
-                    </button>
+                    <RaisedButton label="Double (async)" onClick={this.props.doubleAsync} />
                     <hr />
                     <Link to="/404">Go to 404 Page</Link>
-                </div>
+                </Paper>
             </DocumentTitle>
         );
     }

@@ -36,12 +36,13 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
+    <!-- Material-UI Requirement -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,100,100italic,300italic,400italic,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
     <!-- bundled css -->
     <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
     <% } %>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <!-- bundled javascript -->
     <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>

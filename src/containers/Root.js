@@ -2,6 +2,8 @@ import React, {PropTypes} from 'react';
 import {Provider} from 'react-redux';
 import {Router} from 'react-router';
 import DocumentTitle from 'react-document-title';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 export default class Root extends React.Component {
     static propTypes = {
@@ -37,14 +39,16 @@ export default class Root extends React.Component {
 
     render () {
         return (
-            <Provider store={this.props.store}>
-                <DocumentTitle title={__APPTITLE__}>
-                    <div style={{ height: '100%' }}>
-                        {this.content}
-                        {this.devTools}
-                    </div>
-                </DocumentTitle>
-            </Provider>
+            <MuiThemeProvider muiTheme={getMuiTheme()}>
+                <Provider store={this.props.store}>
+                    <DocumentTitle title={__APPTITLE__}>
+                        <div style={{ height: '100%' }}>
+                            {this.content}
+                            {this.devTools}
+                        </div>
+                    </DocumentTitle>
+                </Provider>
+            </MuiThemeProvider>
         );
     }
 }

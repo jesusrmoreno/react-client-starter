@@ -1,14 +1,30 @@
-.counter {
-  font-weight: bold;
-}
 
-.counter--green {
-  composes: counter;
-  color: rgb(25,200,25);
-}
+.main {
+    min-width: 300px;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 40px;
+    text-align: center;
 
-.duck {
-  display: block;
-  width: 100%;
-  margin-top: 1.5rem;
+    .duck {
+        background-image: url(./Duck.jpg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+    }
+
+    .counter {
+        font-weight: bold;
+        color: green;
+
+        &.odd {
+            color: red;
+        }
+    }
 }
