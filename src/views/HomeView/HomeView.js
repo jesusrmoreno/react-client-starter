@@ -22,12 +22,12 @@ export class HomeView extends React.Component {
     render () {
         return (
             <DocumentTitle title={`${__APPTITLE__} - Home`}>
-                <div className='container text-center'>
-                    <div className='row'>
-                        <div className='col-xs-2 col-xs-offset-5'>
+                <div className="container text-center">
+                    <div className="row">
+                        <div className="col-xs-2 col-xs-offset-5">
                             <img className={classes.duck}
                                  src={DuckImage}
-                                 alt='This is a duck, because Redux.'/>
+                                 alt="This is a duck, because Redux."/>
                         </div>
                     </div>
                     <h1>Welcome to the React Redux Starter Kit</h1>
@@ -36,17 +36,17 @@ export class HomeView extends React.Component {
                         {' '}
                         <span className={classes['counter--green']}>{this.props.counter}</span>
                     </h2>
-                    <button className='btn btn-default'
+                    <button className="btn btn-default"
                             onClick={() => this.props.increment(1)}>
                         Increment
                     </button>
                     {' '}
-                    <button className='btn btn-default'
+                    <button className="btn btn-default"
                             onClick={this.props.doubleAsync}>
                         Double (Async)
                     </button>
                     <hr />
-                    <Link to='/404'>Go to 404 Page</Link>
+                    <Link to="/404">Go to 404 Page</Link>
                 </div>
             </DocumentTitle>
         );
