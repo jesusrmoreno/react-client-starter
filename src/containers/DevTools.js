@@ -11,6 +11,6 @@ export default createDevTools(
         changeMonitorKey="ctrl-m"
         changePositionKey="ctrl-q">
         <LogMonitor expandActionRoot={false} expandStateRoot={false} preserveScrollTop={false} />
-        <SliderMonitor keyboardEnabled={false}/>
+        <SliderMonitor keyboardEnabled={false} />
     </DockMonitor>
 );

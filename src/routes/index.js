@@ -12,10 +12,10 @@ import NotFoundView from 'views/NotFoundView/NotFoundView';
 
 export default (store) => (
     <Route path="/" component={CoreLayout}>
-        <IndexRoute component={HomeView}/>
+        <IndexRoute component={HomeView} />
 
         {/* Route all other requests to our 404 page */}
-        <Route path="/404" component={NotFoundView}/>
-        <Redirect from="*" to="/404"/>
+        <Route path="/404" component={NotFoundView} />
+        <Redirect from="*" to="/404" />
     </Route>
 );

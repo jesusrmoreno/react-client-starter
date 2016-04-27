@@ -11,6 +11,7 @@ function DocumentTitle ({title, children}) {
 
 DocumentTitle.propTypes = {
     title: PropTypes.string.isRequired,
+    children: PropTypes.node,
 };
 
 export default DocumentTitle;

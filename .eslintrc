@@ -28,12 +28,15 @@
         "jsx-quotes": [2, "prefer-double"],
         "react/jsx-boolean-value": 0,
         "react/self-closing-comp": 0,
+        "react/jsx-indent": [2, 4],
+        "react/jsx-indent-props": [2, 4],
         "quotes": 0,
         "indent": [2, 4, { "SwitchCase": 1 } ],
         "space-infix-ops": 0,
         "comma-dangle": 0,
         "max-len": [ 2, 120, 2 ],
         "flow-vars/define-flow-type": 1,
-        "flow-vars/use-flow-type": 1
+        "flow-vars/use-flow-type": 1,
+        "yield-star-spacing": ["error", "after"]
     }
 }

@@ -23,7 +23,7 @@ function init() {
         throw new Error("#root element not found in DOM");
     }
 
-    render(<Root history={syncedHistory} routes={routes} store={store}/>, root);
+    render(<Root history={syncedHistory} routes={routes} store={store} />, root);
 }
 
 // Wait until the DOM has finished loading before initializing the application.
