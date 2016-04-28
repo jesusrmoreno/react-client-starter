@@ -56,6 +56,10 @@ webpackConfig.plugins = [
             collapseWhitespace: true,
             removeComments: true
         }
+    }),
+    // automatically import fetch polyfill if code references global 'fetch`
+    new webpack.ProvidePlugin({
+        'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
     })
 ];
 
