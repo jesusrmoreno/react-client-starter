@@ -60,9 +60,9 @@ export default function createAsyncCacheStore ({
                 }
                 else {
                     // Not in the cache.  Issue a load request
-                    const promise = fetchData(state, ...keyArgs);
+                    const promise = fetchData(...keyArgs);
                     __CHECK__ && invariant(promise && promise.then, "fetchData must return a promise");
-                    dispatch(makePromise(actionTypes.LOAD, promise, key));
+                    dispatch(makePromise(actionTypes.LOAD, promise, key)).catch(() => {});
                 }
             }
         },

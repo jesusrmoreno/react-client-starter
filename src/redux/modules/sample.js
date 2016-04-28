@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {makeAction, createReducer} from '../utils/redux-helpers';
 import createAsyncCacheStore from '../utils/async-cache';
+import invariant from 'invariant';
 
 function prefix (type) { return `sample/${type}`; }
 function getSampleState(state) { return state.sample; }
@@ -12,6 +13,7 @@ function getSampleState(state) { return state.sample; }
  * @returns {*}
  */
 async function fetchDataAsync(page) {
+    __CHECK__ && invariant(typeof page === "number", "page must be a number");
     const response = await fetch(`/api?page=${page}`);
     if (response.status < 200 || response.status >= 300) {
         throw new Error(response.statusText);
@@ -85,3 +87,31 @@ const ACTION_HANDLERS = {
 // Reducer
 // ------------------------------------
 export default combineReducers(ACTION_HANDLERS);
+
+// ------------------------------------
+// Helper methods
+// to be used by databind() or observe() Component methods
+// ------------------------------------
+
+/**
+ * Retrieves the data for the specified page from the redux store
+ * @param state {Object} the root Redux state object
+ * @param page {Number} the page number to retrieve
+ * @returns
+ * { loading: true } if the data is not yet loaded
+ * { error: ErrorObject } if an error occurred retrieving the data
+ * { data: pageData } if the data is available
+ */
+export function getPageData(state, page) {
+    return apiDataStore.util.getEntry(state, page);
+}
+
+/**
+ * Ensures that the specified page data is loaded into the Redux store from the server
+ * @param dispatch
+ * @param page
+ * @returns {IDispoable} dispose to indicate the data is no longer needed
+ */
+export function observePageData(dispatch, page) {
+    return apiDataStore.util.observe(dispatch, page);
+}

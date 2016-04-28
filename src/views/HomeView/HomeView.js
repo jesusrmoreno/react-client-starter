@@ -6,6 +6,7 @@ import Paper from 'material-ui/Paper';
 import RaisedButton from 'material-ui/RaisedButton';
 import css from './HomeView.scss';
 import DocumentTitle from 'components/DocumentTitle';
+import SampleDataViewer from 'components/SampleDataViewer';
 import classnames from 'classnames';
 
 // testable class without redux connection
@@ -22,7 +23,10 @@ export class HomeView extends React.Component {
     }
 
     /* @databind finds this property and passes it to Redux connect() */
-    static actions = counterActions;
+    static actions = {
+        increment: counterActions.increment,
+        doubleAsync: counterActions.doubleAsync,
+    };
 
     incrementByOne = () => this.props.increment(1);
 
@@ -42,6 +46,11 @@ export class HomeView extends React.Component {
                     <RaisedButton label="Increment" onClick={this.incrementByOne} />
                     {' '}
                     <RaisedButton label="Double (async)" onClick={this.props.doubleAsync} />
+                    <p>
+                        Move the slider to load pages of data from the server.  Use the counter buttons above
+                        to increase the number of pages available
+                    </p>
+                    <SampleDataViewer />
                     <hr />
                     <Link to="/404">Go to 404 Page</Link>
                 </Paper>
