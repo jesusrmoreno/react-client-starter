@@ -1,9 +1,8 @@
 /**
  * Created by bwallace on 4/27/2016.
  */
-import {makeAction, makePromise, handlePromise} from './redux-helpers';
+import {makeAction, makePromise, handlePromise, LOADING} from './redux-helpers';
 import * as lru from 'util/lru';
-import {LOADING} from './redux';
 import invariant from 'invariant';
 import Disposable from 'rx.disposables/disposable';
 
@@ -11,7 +10,7 @@ function hasProperty (object, name) {
     return Object.prototype.hasOwnProperty.call(object, name);
 }
 
-export function createAsyncCacheStore ({
+export default function createAsyncCacheStore ({
     actionPrefix,
     maxCacheSize = 10,
     getLocalState,
