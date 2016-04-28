@@ -14,6 +14,21 @@ const debug = _debug('app:server');
 const paths = config.utils_paths;
 const app = new Koa();
 
+// Install a handler for /api requests
+app.use(async (ctx, next) => {
+    const request = ctx.request;
+    if (request.method === "GET" && request.path === "/api") {
+        const page = request.query.page || "0";
+
+        // just sleep a little while then return the value
+        await new Promise(resolve => setTimeout(resolve, 200));
+        ctx.response.body = { data: `This is the data for page ${page}` };
+        return;
+    }
+
+    await next();
+});
+
 // This rewrites all routes requests to the root /index.html file
 // (ignoring file requests). If you want to implement isomorphic
 // rendering, you'll want to remove this middleware.
