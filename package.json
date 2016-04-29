@@ -4,7 +4,7 @@
   "description": "Get started with React, Redux, and React-Router!",
   "main": "index.js",
   "engines": {
-    "node": ">=4.2.0",
+    "node": ">=5.6.0",
     "npm": "^3.0.0"
   },
   "scripts": {
@@ -65,10 +65,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/PalladiumConsulting/react-client-starter.git"
+    "url": "git+https://github.com/experoinc/react-client-starter.git"
   },
-  "author": "David Zukowski <david@zuko.me> (http://zuko.me)",
+  "author": "Brandon Wallace <brandon@experoinc.com> (http://www.experoinc.com)",
   "license": "MIT",
+  "private": true,
   "dependencies": {
     "better-npm-run": "0.0.8",
     "classnames": "^2.2.4",
