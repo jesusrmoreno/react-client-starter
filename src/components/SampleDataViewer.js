@@ -6,7 +6,7 @@ import databind from 'redux/utils/databind';
 import Slider from 'material-ui/Slider';
 import CircularProgress from 'material-ui/CircularProgress';
 import AlertError from 'material-ui/svg-icons/alert/error';
-import css from './SampleDataViewer.scss';
+import css from './SampleDataViewer.less';
 import {actions as sampleActions, getPageData, observePageData} from 'redux/modules/sample';
 
 // testable class without redux connection

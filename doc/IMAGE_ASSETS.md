@@ -1,7 +1,7 @@
 * [How does our build work?](#how-does-our-build-work)
 * [Where should you place new assets?](#where-should-you-place-new-assets)
 * [Importing images in code](#importing-images-in-code)
-* [Importing images in scss](#importing-images-in-scss)
+* [Importing images in css](#importing-images-in-css)
 * [Why does static folder exist?](#why-does-static-folder-exist)
 
 # How does our build work?
@@ -13,8 +13,9 @@ How does it know what assets to include?  In general, it performs dependency ana
 Webpack has special configuration "loader" rules which tell it how to process the different types of files that are imported.
 
 * When we import a `.js` file, the configured [babel-loader](https://github.com/babel/babel-loader) runs [babel](http://babeljs.io/) to transpile the ES6 into ES5.
-* When we import a `.scss` file, we have configured webpack to run through this pipeline:
+* When we import a `.scss` or `.less` file, we have configured webpack to run through this pipeline:
  * [sass-loader](https://github.com/jtangelder/sass-loader) - compiles the SCSS into CSS
+ * [less-loader](https://github.com/webpack/less-loader) - compiles the LESS into CSS
  * [css-loader](https://github.com/webpack/css-loader) - parses the css and finds all dependencies (e.g. all `url(...)` and `@import`).  These dependencies are added to webpack's dependency list and included in the final bundle.
  * [style-loader](https://github.com/webpack/style-loader) - tells webpack how to embed the css rules in the final bundle (e.g. in an external css file or within the JavaScript bootstrap code)
 * When we import an image file (`.jpg`, `.svg`, `.png`, ...) or font file (`.woff`, ...), we use the [url-loader](https://github.com/webpack/url-loader) to include the asset in the bundle.  If the file is "small", then it gets embedded directly as a [data URI](https://developer.mozilla.org/en-US/docs/Web/HTTP/data_URIs).  If the file is "big", then it gets added to the webpack bundle and a cache-busting URL is generated for it.
@@ -53,7 +54,9 @@ const noStyle = {
 
 If you were to put a breakpoint in your code and look at the values of `yesUrl` and `noUrl`, then you'd either see a `data:ABC11013...` style url that has the image encoded in it, or you'd see a path like `/yes-307982309823.png`.  The junk at the end of the filename is a hash of the image contents.  If, during development, you modify the image, this hash changes.  The web server is configured to heavily cache these types of files.  Since the filename changes if the file changes, the browser can cache these forever without any worries about having a stale image.
 
-# Importing images in scss
+# Importing images in css
+
+This works for `.less`, `.scss`, and `.css` files.
 
 Just reference the image using a relative path almost like normal.  The trick is to obey the path rules we use when using the `import` statement in our JavaScript code:
 

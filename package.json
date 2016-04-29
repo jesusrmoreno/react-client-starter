@@ -145,6 +145,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.23",
     "karma-webpack": "^1.7.0",
+    "less": "^2.6.1",
+    "less-loader": "^2.2.3",
     "mocha": "^2.2.5",
     "node-sass": "^3.6.0",
     "nodemon": "^1.8.1",
