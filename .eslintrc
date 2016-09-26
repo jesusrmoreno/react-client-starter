@@ -5,7 +5,6 @@
         "standard-react"
     ],
     "plugins": [
-        "flow-vars"
     ],
     "env": {
         "browser": true
@@ -35,8 +34,7 @@
         "space-infix-ops": 0,
         "comma-dangle": 0,
         "max-len": [ 2, 120, 2 ],
-        "flow-vars/define-flow-type": 1,
-        "flow-vars/use-flow-type": 1,
-        "yield-star-spacing": ["error", "after"]
+        "yield-star-spacing": ["error", "after"],
+        "generator-star-spacing": 0
     }
 }
