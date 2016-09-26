@@ -1,5 +1,3 @@
-
-
 /** Global LOADING object to use to indicate loading */
 export const LOADING = { loading: true };
 
