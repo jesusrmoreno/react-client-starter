@@ -22,16 +22,14 @@ Exactly how to do this is OS-dependent
 
 ## Install Node
 
-Install [nodejs 5.6](https://nodejs.org/download/release/v5.6.0/) on your computer.  Not 4.x. Not 5.7. Use 5.6
+Install [nodejs](https://nodejs.org) on your computer.
 
-Important Note: [nodejs stable](https://nodejs.org/en/download/stable/) has newer versions available that currently are not compatible with this application. The server may start, but the browser may throw unknown errors.
+The most recent version of node 6 is recommended since it is the current long term support release. The latest version should also work. Versions 6.9.5 and 7.5.0 have been tested with this starter kit.
 
 ## Verify Node and NPM versions
 
-Nodejs will install npm 3.x.  Make sure you have nodejs 5.x and npm 3.x
-
-`node -v` should report `5.6.0` or similar
-`npm -v` should report `3.6.0` or similar.
+`node -v` should report `v6.9.5` or similar
+`npm -v` should report `3.10.10` or similar.
 
 ## Clone repo
 
